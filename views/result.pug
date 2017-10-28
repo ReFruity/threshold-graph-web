@@ -4,5 +4,8 @@ html(lang="en")
         meta(charset="UTF-8")
         title Computation result
     body
-        div= result
+        - var strings = result.split("\n")
+        - for (var i in strings)
+            div= strings[i]
+
         a(href='/') Назад
