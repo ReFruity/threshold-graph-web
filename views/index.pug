@@ -4,7 +4,14 @@ html(lang="en")
         meta(charset="UTF-8")
         title Threshold graph
     body
-        form(action="/calculate", method="post")
-            //input(name="test" value="qwe")
-            input(name="partition", title="Partition", type="text")
-            input(type="submit" value="Посчитать")
+        div Partition
+            form(action="/partition", method="post")
+                input(name="partition", title="Partition", type="text")
+                input(type="submit" value="Посчитать")
+
+        div Statistics (graph size, seed, iterations)
+            form(action="/statistics", method="post")
+                input(name="size", title="Graph size", type="text")
+                input(name="seed", title="Random seed", type="text")
+                input(name="iterations", title="Iterations", type="text")
+                input(type="submit" value="Посчитать")

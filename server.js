@@ -14,10 +14,17 @@ app.get('/', function(req, res) {
   res.render('index')
 });
 
-app.post('/calculate', function(req, res) {
+app.post('/partition', function(req, res) {
   console.log("req.body: ", req.body);
-  const args = req.body.partition .split(' ');
-  const resultBuffer = execFileSync('bin/threshold_graph.exe', args);
+  const args = req.body.partition.split(' ');
+  const resultBuffer = execFileSync('bin/partition.exe', args);
+  res.render('result', { result: resultBuffer.toString() })
+});
+
+app.post('/statistics', function(req, res) {
+  console.log("req.body: ", req.body);
+  const args = [req.body.size, req.body.seed, req.body.iterations];
+  const resultBuffer = execFileSync('bin/statistics.exe', args);
   res.render('result', { result: resultBuffer.toString() })
 });
 
