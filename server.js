@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
   res.render('index')
@@ -17,14 +18,14 @@ app.get('/', function(req, res) {
 app.post('/partition', function(req, res) {
   console.log("req.body: ", req.body);
   const args = req.body.partition.split(' ');
-  const resultBuffer = execFileSync('bin/partition.exe', args);
+  const resultBuffer = execFileSync('bin/partition', args);
   res.render('result', { result: resultBuffer.toString() })
 });
 
 app.post('/statistics', function(req, res) {
   console.log("req.body: ", req.body);
   const args = [req.body.size, req.body.seed, req.body.iterations];
-  const resultBuffer = execFileSync('bin/statistics.exe', args);
+  const resultBuffer = execFileSync('bin/statistics', args);
   res.render('result', { result: resultBuffer.toString() })
 });
 
