@@ -2,14 +2,14 @@ doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
-        title Threshold graph
+        title Разбиения
     body
-        div Partition
+        div Разбиение
             form(action="/partition", method="post")
                 input(name="partition", title="Partition", type="text")
                 input(type="submit" value="Посчитать")
 
-        div Statistics (graph size, seed, iterations)
+        div Статистика (размер графа, случайный сид, количество итераций)
             form(action="/statistics", method="post")
                 input(name="size", title="Graph size", type="text")
                 input(name="seed", title="Random seed", type="text")
