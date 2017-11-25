@@ -3,7 +3,9 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         title Результат вычислений
+        //script(type="text/javascript" src="js/visualizer.js")
     body
+        canvas#canvas
         - var strings = result.split("\n")
         - for (var i in strings)
             div= strings[i]
